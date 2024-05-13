@@ -11,19 +11,19 @@
 
 ### Create Screening
 
-- **Endpoint:** `POST /admin/screenings`
+- **Endpoint:** `POST /screenings`
 - **Validation:** movie_id (integer not null), timestamp (integer "YYYY-MM-DD HH:MM"), total_tickets (integer not null).
 - **Logic:** Insert a new screening into the database.
 
 ### Delete Screening (Optional)
 
-- **Endpoint:** `DELETE /admin/screenings/:id`
+- **Endpoint:** `DELETE /screenings/:id`
 - **Validation:** ID(integer not null).
 - **Logic:** Check if the screening is empty (no tickets booked) and delete it if true.
 
 ### Update Screening Ticket Allocation (Optional)
 
-- **Endpoint:** `PATCH /admin/screenings/:id`
+- **Endpoint:** `PATCH /screenings/:id`
 - **Validation:** ID(integer not null).
 - **Logic:** Ensure the new ticket allocation is not lower than the number of reserved tickets before updating.
 
@@ -44,7 +44,7 @@
 
 ### Get User Bookings
 
-- **Endpoint:** `GET /users/:id/tickets`
+- **Endpoint:** `GET /tickets`
 - **Validation:** Validate the user ID in the URL.
 - **Logic:** Fetch and return a list of bookings (tickets) for the specified user.
 

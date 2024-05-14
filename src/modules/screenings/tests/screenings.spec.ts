@@ -20,14 +20,15 @@ describe('post', () => {
       .post('/screenings')
       .send({
         movieId: 22,
-        screeningTimestamp: '2024-12-12 20:00',
+        screeningTimestamp: '2024-12-12T20:00:00Z',
         totalTickets: 100,
       })
       .expect(200)
+
     expect(body).toEqual({
       id: 1,
       movieId: 22,
-      screeningTimestamp: '2024-12-12 20:00',
+      screeningTimestamp: '2024-12-12T20:00:00Z',
       totalTickets: 100,
       availableTickets: 100,
     })

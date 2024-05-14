@@ -2,6 +2,7 @@ import { Router } from 'express'
 import type { Database } from '@/database'
 import { jsonRoute } from '@/utils/middleware'
 import buildRespository from './repository'
+import * as schema from './schema'
 
 export default (db: Database) => {
   const messages = buildRespository(db)
@@ -10,7 +11,8 @@ export default (db: Database) => {
   router.post(
     '/',
     jsonRoute(async (req, res) => {
-      const screening = await messages.insertNew(req.body)
+      const body = schema.parseInsertables(req.body)
+      const screening = await messages.insertNew(body)
       res.status(200)
       res.json(screening)
     })

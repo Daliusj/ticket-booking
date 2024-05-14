@@ -18,13 +18,13 @@ describe('createScreening', () => {
     ])
     const screening = await repository.insertNew({
       movieId: 22,
-      screeningTimestamp: '2024-12-12 20:00',
+      screeningTimestamp: '2024-12-12T20:00:00Z',
       totalTickets: 100,
     })
     expect(screening).toEqual({
       id: 1,
       movieId: 22,
-      screeningTimestamp: '2024-12-12 20:00',
+      screeningTimestamp: '2024-12-12T20:00:00Z',
       totalTickets: 100,
       availableTickets: 100,
     })
@@ -36,10 +36,25 @@ describe('createScreening', () => {
       {
         id: 1,
         movieId: 22,
-        screeningTimestamp: '2024-12-12 20:00',
+        screeningTimestamp: '2024-12-12T20:00:00Z',
         totalTickets: 100,
         availableTickets: 100,
       },
     ])
   })
 })
+
+// describe('reduce available tickets', () => {
+//   it('should reduce availables tickets by 1', async () => {
+//     const allScreenings = selectAllScreenings()
+//     expect(allScreenings).toEqual([
+//       {
+//         id: 1,
+//         movieId: 22,
+//         screeningTimestamp: '2024-12-12T20:00:00Z',
+//         totalTickets: 100,
+//         availableTickets: 99,
+//       },
+//     ])
+//   })
+// })

@@ -43,7 +43,7 @@ export interface Stars {
 export interface Tickets {
   bookingTimestamp: string;
   id: Generated<number>;
-  "screening.id": number;
+  screeningId: number;
 }
 
 export interface DB {
